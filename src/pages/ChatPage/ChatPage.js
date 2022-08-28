@@ -7,8 +7,7 @@ import DialogList from '../../components/DialogsList/DialogList';
 import './ChatPage.scss';
 
 const ChatPage = () => {
-    const [isMobileSidebar, setIsMobileSidebar] = useState(false)
-
+    const [isMobileSidebar, setIsMobileSidebar] = useState(true);
 
     return (
         <div className='chat__container'>

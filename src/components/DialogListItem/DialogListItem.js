@@ -14,11 +14,19 @@ const DialogListItem = ({ dialog, setIsMobileSidebar }) => {
     setLastMessage(currentMessages[currentMessages.length - 1]);
   }, [currentMessages])
 
+  const sidebarHandler = (e) => {
+    if(setIsMobileSidebar){
+      setIsMobileSidebar(false)
+      return;
+    }
+    return;
+  }
+
   return (
     <Link
       to={`/${dialog.id}`}
       className={lastMessage.status === 'new' ? 'chat-item__container new' : 'chat-item__container'}
-      onClick={() => setIsMobileSidebar(false)}>
+      onClick={(e) => sidebarHandler(e)}>
       <div className="contact__img"><img src={dialog.photoURL} alt={dialog.name} /></div>
       <div className="contact__info">
         <div className="contact__info_txt">
