@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import LoginPage from './pages/LoginPage/LoginPage';
+import ChatPage from './pages/ChatPage/ChatPage';
+import ActiveDialog from './components/ActiveDialog/ActiveDialog';
+import { SetMessages, SetUser } from './store/slices/userSlice';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { user } = useSelector((state) => state.userReducer);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!user) {
+            const data = localStorage.getItem('user');
+            if (data) {
+                dispatch(SetUser({ user: JSON.parse(data) }));
+            }
+        }
+        if (user) {
+            const savedMessages = localStorage.getItem(`${user.id}`);
+            if (savedMessages) {
+
+                dispatch(SetMessages({ messages: JSON.parse(savedMessages) }));
+            }
+        }
+    }, [user])
+
+    return (
+        <Routes>
+            {!user ? (
+                <Route path='/' element={<LoginPage />} />
+            ) : (
+                <Route path='/' element={<ChatPage />}>
+                    <Route path=':contactId' element={<ActiveDialog />} />
+                </Route>
+            )}
+        </Routes>
+    );
 }
 
 export default App;

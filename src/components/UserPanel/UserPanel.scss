@@ -1,0 +1,67 @@
+.user-panel__container {
+    border-bottom: 1px solid #acacac;
+    height: 25vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    .user__info {
+        align-self: flex-start;
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+        .user__img {
+            position: relative;
+            img {
+                border-radius: 50%;
+            }
+            &::after {
+                content: url('../../images/verify-verified-check-icon.svg');
+                position: absolute;
+                bottom: 0px;
+                right: -9px;
+            }
+        }
+        .exit__btn {
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            transition: ease-out 0.5s;
+            &::after {
+                content: url('../../images/exit-svgrepo-com.svg');
+                height: 30px;
+                width: 30px;
+            }
+            &:hover {
+                background: #acacac;
+            }
+        }
+    }
+    .search__input {
+        width: 100%;
+        position: relative;
+        input {
+            padding: 5px;
+            border-radius: 50px;
+            padding-left: 40px;
+            width: 100%;
+            border: 1px solid #acacac;
+            &:focus-visible {
+                outline: none;
+            }
+        }
+        &::before {
+            content: url('../../images/search-icon.svg');
+            position: absolute;
+            top: 6px;
+            left: 15px;
+        }
+    }
+}

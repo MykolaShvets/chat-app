@@ -1,0 +1,10 @@
+.chat__container {
+    display: flex;
+    .chat__sidebar {
+        border-right: 1px solid #acacac;
+        width: 40%;
+    }
+    .active__dialog {
+        width: 60%;
+    }
+}

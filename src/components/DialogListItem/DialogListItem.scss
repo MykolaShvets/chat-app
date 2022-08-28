@@ -1,0 +1,47 @@
+.chat-item__container {
+    padding: 20px 15px;
+    border-bottom: 1px solid #acacac;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    color: inherit;
+    text-decoration: none;
+    order: 2;
+    .contact__img {
+        position: relative;
+        img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+        &::after {
+            content: url('../../images/verify-verified-check-icon.svg');
+            position: absolute;
+            bottom: 0px;
+            right: -15px;
+        }
+    }
+    .contact__info {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        .contact__name {
+            font-size: 18px;
+        }
+        .contact__last-message {
+            color: #acacac;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .contact__info_date {
+            color: #acacac;
+            font-size: 12px;
+        }
+    }
+}
+
+.new {
+    background: #363535;
+    order: 1;
+}
