@@ -3,8 +3,34 @@
     .chat__sidebar {
         border-right: 1px solid #acacac;
         width: 40%;
+        @media(max-width: 800px) {
+            display: none;
+        };
+    }
+    .sidebat__btn{
+        display: none;
+        @media(max-width: 800px) {
+            display: block;
+        };
+    }
+    .chat__mobile-sidebar{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+       
     }
     .active__dialog {
         width: 60%;
+        @media(max-width: 800px) {
+            width: 100%;
+        };
+    }
+    .visible{
+        @media(max-width: 800px) {
+            display: block;
+            width: 100%;
+        };
     }
 }

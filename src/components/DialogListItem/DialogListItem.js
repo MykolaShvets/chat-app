@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import './DialogListItem.scss';
 
-const DialogListItem = ({ dialog }) => {
+const DialogListItem = ({ dialog, setIsMobileSidebar }) => {
   const { messages, user } = useSelector(state => state.userReducer);
   const [lastMessage, setLastMessage] = useState('');
   const currentMessages = messages
@@ -15,7 +15,10 @@ const DialogListItem = ({ dialog }) => {
   }, [currentMessages])
 
   return (
-    <Link to={`/${dialog.id}`} className={lastMessage.status === 'new' ? 'chat-item__container new' : 'chat-item__container'}>
+    <Link
+      to={`/${dialog.id}`}
+      className={lastMessage.status === 'new' ? 'chat-item__container new' : 'chat-item__container'}
+      onClick={() => setIsMobileSidebar(false)}>
       <div className="contact__img"><img src={dialog.photoURL} alt={dialog.name} /></div>
       <div className="contact__info">
         <div className="contact__info_txt">

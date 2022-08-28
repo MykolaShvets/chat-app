@@ -5,7 +5,7 @@ import DialogListItem from './../DialogListItem/DialogListItem';
 
 import './DialogList.scss';
 
-const DialogList = () => {
+const DialogList = ({setIsMobileSidebar}) => {
   const { contacts, searchResult } = useSelector(state => state.userReducer);
   const [dialogs, setDialogs] = useState(contacts);
 
@@ -21,7 +21,7 @@ const DialogList = () => {
   return (
     <div className='chat-list__container'>
       <h2>Chats</h2>
-      {dialogs.map(dialog => <DialogListItem key={dialog.id} dialog={dialog} />)}
+      {dialogs.map(dialog => <DialogListItem key={dialog.id} dialog={dialog} setIsMobileSidebar={setIsMobileSidebar} />)}
     </div>
   )
 }
